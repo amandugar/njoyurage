@@ -4,6 +4,57 @@ html, body, p, li, a {
     text-align: justify;
 }
 
+html, body, html *, body * {
+    cursor: none;
+}
+
+.cursor-dot, .cursor-dot-outline {
+    pointer-events: none;
+    position: absolute;
+    z-index: 10000;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    opacity: 0;
+    transform: translate(-50%, -50%);
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #fb383b;
+}
+
+.cursor-dot-outline {
+    width: 40px;
+    height: 40px;
+    border-style: solid;
+    border-color: #fb383b
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+/* Handle on hover */
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
 #navbarTop {
     transition: background-color 1s;
 }
@@ -345,7 +396,7 @@ html, body, p, li, a {
     position: relative;
     max-width: 100%;
     margin-top: 15vh;
-    background-color: #B3FF00;
+    background-color: #5A13F2;
     padding-bottom: 20vh;
 }
 
@@ -379,10 +430,6 @@ html, body, p, li, a {
 
 .dateBlog {
     font-weight: 300;
-}
-
-.blogBody {
-    background-color: #B3FF00;
 }
 
 .blogCard {
@@ -728,6 +775,8 @@ input[type=checkbox]:checked+label {
 .footer-section {
     background: #151414;
     position: relative;
+    margin-top: 10vh;
+    padding-bottom: 10vh;
 }
 
 .footer-cta {
@@ -830,16 +879,6 @@ input[type=checkbox]:checked+label {
     position: relative;
 }
 
-.footer-widget-heading h3::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -15px;
-    height: 2px;
-    width: 50px;
-    background: #ff5e14;
-}
-
 .footer-widget ul li {
     display: inline-block;
     float: left;
@@ -856,34 +895,6 @@ input[type=checkbox]:checked+label {
     text-transform: capitalize;
 }
 
-.subscribe-form {
-    position: relative;
-    overflow: hidden;
-}
-
-.subscribe-form input {
-    width: 100%;
-    padding: 14px 28px;
-    background: #2E2E2E;
-    border: 1px solid #2E2E2E;
-    color: #fff;
-}
-
-.subscribe-form button {
-    position: absolute;
-    right: 0;
-    background: #ff5e14;
-    padding: 13px 20px;
-    border: 1px solid #ff5e14;
-    top: 0;
-}
-
-.subscribe-form button i {
-    color: #fff;
-    font-size: 22px;
-    transform: rotate(-6deg);
-}
-
 .footer-menu li {
     display: inline-block;
     margin-left: 20px;
@@ -896,4 +907,79 @@ input[type=checkbox]:checked+label {
 .footer-menu li a {
     font-size: 14px;
     color: #878787;
+}
+
+.map {
+    height: 100%;
+    width: 100%;
+}
+
+#title{
+    position: relative;
+    margin-top: 10vh;
+}
+
+.cont {
+    padding: 3% 15% 8%;
+    background-color: #ff4c68;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Navigation Bar */
+
+/* Download Buttons */
+
+.download-button {
+    margin: 5% 3% 5% 0;
+}
+
+.download-button svg {
+    width: 1rem;
+}
+
+/* TITLE IMAGE */
+
+.title-image {
+    width: 20%;
+    transform: rotate(25deg);
+    position: absolute;
+    right: 30%;
+}
+
+@media (max-width:1028px) {
+    .title-image {
+        position: static;
+        transform: rotate(0deg);
+    }
+}
+
+.qualities {
+    text-align: center;
+}
+
+#features {
+    padding: 7% 15%;
+    background-color: white;
+    position: relative;
+}
+
+.feature-box {
+    text-align: center;
+    padding: 5%;
+}
+
+.icon {
+    color: #ef8172;
+    margin-bottom: 1rem;
+}
+
+.icon:hover {
+    color: #ff4c68;
+}
+
+/* Testimonials */
+
+.social-icon {
+    margin: 20px 10px;
 }
