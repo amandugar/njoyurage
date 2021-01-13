@@ -373,7 +373,8 @@ html, body, html *, body * {
 }
 
 .vlogsSection {
-    margin: 5vh auto;
+    margin: 10vh auto;
+    margin-bottom: 20vh;
 }
 
 .vlogsHeadingTop {
@@ -424,7 +425,7 @@ html, body, html *, body * {
 
 .imageBlog img:hover {
     transform: scale(1.5);
-    transition: transform .2s;
+    transition: transform 5s;
     cursor: zoom-in;
 }
 
