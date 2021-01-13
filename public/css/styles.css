@@ -196,6 +196,17 @@ html, body, html *, body * {
     left: 0;
     right: 0;
     bottom: 0vh;
+    
+    transform: rotateY(-180deg);
+    z-index: 1;
+    height: 200px;
+}
+
+#banner_svg1 {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0vh;
     top: calc(100vh - 200px);
     transform: rotateY(-180deg);
     z-index: 1;
@@ -223,6 +234,10 @@ html, body, html *, body * {
 @media screen and (max-width:991px) {
     #banner_svg {
         bottom: 0vh;
+        height: 100px;
+    }
+    #banner_svg1 {
+        bottom: 0vh;
         top: calc(100vh - 100px);
         height: 100px;
     }
@@ -234,6 +249,10 @@ html, body, html *, body * {
 
 @media (max-width: 767px) {
     #banner_svg {
+        bottom: 0vh;
+        height: 100px;
+    }
+    #banner_svg1 {
         bottom: 0vh;
         top: calc(100vh - 100px);
         height: 100px;
