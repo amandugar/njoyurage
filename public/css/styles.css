@@ -82,7 +82,7 @@ html, body, html *, body * {
 }
 
 .slick-prev, .slick-next {
-    width: 5rem;
+
     height: 5rem;
     z-index: 10;
 }
@@ -128,7 +128,7 @@ html, body, html *, body * {
 }
 
 .slick-next {
-    right: 2rem;
+    right: 1rem;
 }
 
 .slick-prev {
