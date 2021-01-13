@@ -101,6 +101,7 @@ html, body, html *, body * {
     background-repeat: no-repeat;
     background-size: cover;
     min-height: 100vh;
+    max-height: 100vh;
 }
 
 .simage1 {
