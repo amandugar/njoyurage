@@ -100,8 +100,8 @@ html, body, html *, body * {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    min-height: 100vh;
-    max-height: 100vh;
+    min-height: 115vh;
+    max-height: 115vh;
 }
 
 .simage1 {
@@ -195,8 +195,7 @@ html, body, html *, body * {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 0vh;
-    
+    bottom: 0vh;  
     transform: rotateY(-180deg);
     z-index: 1;
     height: 200px;
@@ -207,7 +206,7 @@ html, body, html *, body * {
     left: 0;
     right: 0;
     bottom: 0vh;
-    top: calc(100vh - 200px);
+    top: calc(115vh - 200px);
     transform: rotateY(-180deg);
     z-index: 1;
     height: 200px;
@@ -238,7 +237,7 @@ html, body, html *, body * {
     }
     #banner_svg1 {
         bottom: 0vh;
-        top: calc(100vh - 100px);
+        top: calc(115vh - 100px);
         height: 100px;
     }
     #about-header-svg {
@@ -254,7 +253,7 @@ html, body, html *, body * {
     }
     #banner_svg1 {
         bottom: 0vh;
-        top: calc(100vh - 100px);
+        top: calc(115vh - 100px);
         height: 100px;
     }
     #about-header-svg {
@@ -264,6 +263,11 @@ html, body, html *, body * {
 }
 
 @media (min-width: 1200px) and (max-width: 1599px) {
+    #banner_svg1 {
+        bottom: 0vh;
+        top: calc(115vh - 100px);
+        height: 100px;
+    }
     #banner_svg {
         height: 100px;
     }
