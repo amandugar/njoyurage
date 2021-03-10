@@ -1,0 +1,65 @@
+<%- include("partials/header") %>
+<%- include("partials/navbar") %>
+<div class="container mt-5">
+    <div class="row">
+      <% services.forEach(function(service){ %>
+
+      
+      <div class="col-md-12">
+        <div class="card">
+          <div class = "row">
+            <div class="col-md-6">
+              <img src="<%- service.image%>" class="card-img-top" alt="...">
+            </div>
+            <div class="col-md-6">
+              <div class="card-body">
+                <h4 class="card-title">
+                  <%= service.name %>
+                </h4>
+  
+                <p class="card-text"><%- service.description%>
+                </p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%=service.name%>">
+                  know more
+                </button>
+              </div>
+            </div>
+        </div>
+        </div>   
+      </div>
+          <!-- Modal -->
+          <div class="modal fade" id="<%=service.name%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel"><%=service.name%></h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <% service.knowMore.forEach(function(serviceModal){ %>
+                  <div class="row p-3">
+                    <h5>
+                      <%= serviceModal.heading %>
+                    </h5>
+                    <div class="col-md-3">
+                      <img src="<%- serviceModal.imageModal %>" class="img-fluid rounded float-start" alt="" srcset="">
+                    </div>
+                    <div class="col-md-9">
+                      <p>
+                        <%= serviceModal.descriptionModal %>
+                      </p>
+                    </div>
+                  </div>
+                  <% }) %>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+       <% })  %> 
+    </div>
+</div>
+
+<%- include("partials/footer") %>
