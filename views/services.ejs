@@ -2,9 +2,7 @@
 <%- include("partials/navbar") %>
 <div class="container mt-5">
     <div class="row">
-      <% services.forEach(function(service){ %>
-
-      
+      <% services.forEach(function(service){ %>  
       <div class="col-md-12">
         <div class="card">
           <div class = "row">
@@ -27,7 +25,6 @@
         </div>
         </div>   
       </div>
-          <!-- Modal -->
           <div class="modal fade" id="<%=service.name%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
