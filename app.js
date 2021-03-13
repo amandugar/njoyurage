@@ -93,8 +93,7 @@ app.get("/blogs", function (req, res) {
     Post.find({}, function (err, posts) {
         if (err) {
             res.send(err)
-        }
-        else {
+        } else {
             fs.readFile('featuredPost.json', function (err, data) {
                 if (err) {
                     res.send("Error")
@@ -108,7 +107,7 @@ app.get("/blogs", function (req, res) {
                     blogs: posts,
                     feature: featuredPost
                 })
-            },2000)
+            }, 2000)
         }
     })
 })
@@ -131,7 +130,9 @@ app.get("/admin/:username/deleteBlog", function (req, res) {
 
 app.post("/deleteBlog", function (req, res) {
     if (req.isAuthenticated()) {
-        Post.findOneAndDelete({ _id: req.body.deletePost }, function (err) {
+        Post.findOneAndDelete({
+            _id: req.body.deletePost
+        }, function (err) {
             if (err) {
                 console.log(err);
             } else {
@@ -270,7 +271,9 @@ app.post("/admin/:username/createBlog", function (req, res) {
 })
 
 app.get("/blogs/:id", function (req, res) {
-    Post.findOne({ _id: req.params.id }, function (err, post) {
+    Post.findOne({
+        _id: req.params.id
+    }, function (err, post) {
         if (err) {
             res.send("Error")
         } else {
@@ -302,7 +305,9 @@ app.get("/admin/:username/change-featured-post", function (req, res) {
 
 app.post("/change-featured-post", function (req, res) {
     if (req.isAuthenticated()) {
-        Post.findOne({ _id: req.body.featurePost }, function (err, data) {
+        Post.findOne({
+            _id: req.body.featurePost
+        }, function (err, data) {
             if (err) {
                 res.send(err);
             } else {
@@ -325,7 +330,6 @@ app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
 });
-
 
 
 
