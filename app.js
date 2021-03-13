@@ -88,9 +88,47 @@ app.get("/services", function (req, res) {
         services: services
     })
 })
-
+let featuredPost;
 app.get("/blogs", function (req, res) {
-    res.render("blogs")
+    Post.find({}, function (err, posts) {
+        if (err) {
+            res.send(err)
+        }
+        else {
+            fs.readFile('featuredPost.json', function (err, data) {
+                if (err) {
+                    res.send("Error")
+                } else {
+                    featuredPost = JSON.parse(data);
+                    console.log(featuredPost)
+                }
+            })
+            res.render("blogs", {
+                blogs: posts,
+                feature: featuredPost
+            })
+        }
+    })
+})
+
+app.get("/admin/:username/deleteBlog", function (req, res) {
+    if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+        Post.find({}, function (err, data) {
+            if (err) {
+                res.send("Error")
+            } else {
+                res.render("deleteBlog", {
+                    posts: data
+                })
+            }
+        })
+    } else {
+        res.redirect("/")
+    }
+})
+
+app.delete("/delteBlog", function (req, res) {
+    
 })
 
 app.get("/admin", function (req, res) {
@@ -103,7 +141,9 @@ app.get("/admin", function (req, res) {
 
 app.get("/admin/:username", function (req, res) {
     if (req.isAuthenticated() && req.params.username === usernameAuthenticated) {
-        res.render("admin")
+        res.render("admin", {
+            username: usernameAuthenticated
+        })
     } else {
         res.redirect("/login")
     }
@@ -133,8 +173,12 @@ app.post("/login", function (req, res) {
 
 });
 
-app.get("/signup", function (req, res) {
-    res.render("signup")
+app.get("/admin/:username/createUser", function (req, res) {
+    if (req.isAuthenticated() && req.params.username === usernameAuthenticated) {
+        res.render("signup")
+    } else {
+        res.redirect("/");
+    }
 })
 
 app.post("/signup", function (req, res) {
@@ -190,7 +234,6 @@ app.post("/admin/:username/createBlog", function (req, res) {
             if (err) {
                 return res.status(500).send(err);
             }
-
             const newPost = new Post({
                 author: author,
                 title: title,
@@ -208,17 +251,70 @@ app.post("/admin/:username/createBlog", function (req, res) {
                 }
             })
         });
-
-
     } else {
         res.redirect("/blog")
     }
 })
 
+app.get("/blogs/:id", function (req, res) {
+    Post.findOne({ _id: req.params.id }, function (err, post) {
+        if (err) {
+            res.send("Error")
+        } else {
+
+            res.render("singlePost", {
+                blog: post
+            })
+        }
+    })
+})
+
+
+
+app.get("/admin/:username/change-featured-post", function (req, res) {
+    if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+        Post.find({}, function (err, data) {
+            if (err) {
+                res.send("Error")
+            } else {
+                res.render("changeFeaturePost", {
+                    posts: data
+                })
+            }
+        })
+    } else {
+        res.redirect("/")
+    }
+})
+
+app.post("/change-featured-post", function (req, res) {
+    if (req.isAuthenticated()) {
+        Post.findOne({ _id: req.body.featurePost }, function (err, data) {
+            if (err) {
+                res.send(err);
+            } else {
+                fs.writeFile("featuredPost.json", JSON.stringify(data), err => {
+                    if (err) {
+                        res.send(err);
+                    } else {
+                        res.send("changed");
+                    }
+                })
+            }
+        })
+    } else {
+        res.redirect("/")
+    }
+})
+
+
 app.get("/logout", function (req, res) {
     req.logout();
     res.redirect("/");
 });
+
+
+
 
 
 app.listen(port, function (req, res) {

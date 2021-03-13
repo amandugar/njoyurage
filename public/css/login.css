@@ -37,7 +37,7 @@
 }
 .form__input:-webkit-autofill, .form__input:-webkit-autofill:hover {
     -webkit-text-fill-color: #aaa !important;
-    -webkit-box-shadow: 0 0 0 3rem white inset !important;
+    box-shadow: 0 0 0 3rem white inset !important;
 }
 .form__input::placeholder {
     color: #ccc;

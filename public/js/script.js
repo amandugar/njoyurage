@@ -119,24 +119,6 @@ cursor.init();
 
 if (window.location.pathname === "/") {
 
-
-	// $(document).ready(function () {
-	// 	$("#tags").hide();
-	// 	$('#myCanvas').tagcanvas({
-	// 		textColour: '#444;',
-	// 		textFont: `'Poppins', sans-serif`,
-	// 		outlineColour: 'rgba(0,0,0,0)',
-	// 		bgOutline: null,
-	// 		freezeDecel: true,
-	// 		reverse: true,
-	// 		depth: .6,
-	// 		initial: [0.1, 0.1],
-	// 		maxSpeed: 0.1,
-	// 		dragControl: true,
-	// 		minSpeed: 0.001
-	// 	}, 'tags')
-	// });
-
 	$('.single-item-rtl').slick({
 		dots: true,
 		infinite: true,
@@ -152,24 +134,6 @@ if (window.location.pathname === "/") {
 		prevArrow: `<i class="bi bi-chevron-left a-left control-c prev slick-prev"></i>`,
 		nextArrow: `<i class="bi bi-chevron-right a-right control-c next slick-next"></i>`
 	});
-	if (window.location.pathname === "/") {
-		let canva = document.getElementById("myCanvas");
-		setInterval(function () {
-			if (screen.width >= 960) {
-				canva.width = 400;
-				canva.height = 400;
-			} else if (screen.width < 960 && screen.width >= 768) {
-				canva.width = 400;
-				canva.height = 400;
-			} else if (screen.width < 768 && screen.width >= 350) {
-				canva.width = 350;
-				canva.height = 350;
-			} else {
-				canva.width = 270;
-				canva.height = 270;
-			}
-		}, 1000)
-	}
 
 
 	// Params
