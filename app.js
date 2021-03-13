@@ -103,10 +103,12 @@ app.get("/blogs", function (req, res) {
                     console.log(featuredPost)
                 }
             })
-            res.render("blogs", {
-                blogs: posts,
-                feature: featuredPost
-            })
+            setTimeout(() => {
+                res.render("blogs", {
+                    blogs: posts,
+                    feature: featuredPost
+                })
+            },2000)
         }
     })
 })
@@ -127,8 +129,19 @@ app.get("/admin/:username/deleteBlog", function (req, res) {
     }
 })
 
-app.delete("/delteBlog", function (req, res) {
-    
+app.post("/deleteBlog", function (req, res) {
+    if (req.isAuthenticated()) {
+        Post.findOneAndDelete({ _id: req.body.deletePost }, function (err) {
+            if (err) {
+                console.log(err);
+            } else {
+                console.log(req.body.deletePost)
+                res.send("Done");
+            }
+        })
+    } else {
+        res.redirect("/")
+    }
 })
 
 app.get("/admin", function (req, res) {

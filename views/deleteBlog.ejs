@@ -1,0 +1,14 @@
+<%- include("partials/header") %>
+
+<div class="container p-5 m-5">
+<form action="/deleteBlog" method="post">
+    <select class="form-select" name="deletePost" aria-label="Default select example">
+        <% posts.forEach(function(post){ %>
+        <option value="<%=post._id%>"><%=post.title%>&nbsp; &nbsp; - &nbsp; &nbsp;<%=post._id%></option>
+        <%})%>
+    </select>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+</div>
+
+<%- include("partials/footer") %>
