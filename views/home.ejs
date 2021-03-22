@@ -1,80 +1,70 @@
 <%- include("partials/header") %>
 <%- include("partials/navbar") %>
-<div class="container headContainer">
-	<div class="row">
-		<div class="col-md-12">
-			<div class="single-item-rtl">
-				<div class="simage1 simage">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="setupM "> </div>
-						</div>
-					</div>
-				</div>
-				<div class="simage2 simage">
-					<div class="row">
-						<div class="col-md-12">
-							<div class=" setupM"> </div>
-						</div>
-					</div>
-				</div>
-				<div class="simage3 simage">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="setupM "> </div>
-						</div>
-					</div>
-				</div>
-				<div class="simage4 simage">
-					<div class="row">
-						<div class="col-md-12">
-							<div class=" setupM"> </div>
-						</div>
-					</div>
-				</div>
-				<div class="simage5 simage">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="setupM "> </div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-    </div>
-    <svg id="banner_svg1" class="separator__svg" width="100%" viewBox="0 0 100 100" preserveAspectRatio="none" fill="#ffffff" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <path d="M 100 100 V 10 L 0 100"></path>
-        <path d="M 30 73 L 100 18 V 10 Z" fill="#ffffff" stroke-width="0"></path>
-    </svg>
-</div>
+<section id="hero" class="d-flex justify-cntent-center align-items-center mb-5" data-aos="fade-up">
+	<div id="heroCarousel" class="container carousel carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
 
-<div class="container" style="margin: 2% auto;">
-	<div style="border-right: 1px solid #b1967b!important; border-bottom: 1px solid #b1967b!important;    max-width: fit-content;
-    padding: 1rem;
-    margin: 3% 0;">
-		<h2 style="font-size: 3rem; text-align:center; text-transform:uppercase">Know about Us</h2>
-	</div>
-	<div class="row">
-		<div class="col-md-6">
-			<h6>
-				Life Begins at 50+
-			</h6>
-			<h2>
-				Reimagining Ageing
-			</h2>
-			<p>
-				At NjoyUrAge we are reimagining aging. Aging is fun. Aging is a rediscovery of yourself. Aging is experiencing the world all over….once again. Aging is life’s beautiful phase. It is a time to travel. It is time to spend hours with old friends. It is time to find and make new friends. It is time to be alive & lively.
-				At NjoyUrAge we are reimagining aging. Aging is fun. Aging is a rediscovery of yourself. Aging is experiencing the world all over….once again. Aging is life’s beautiful phase. It is a time to travel. It is time to spend hours with old friends. It is time to find and make new friends. It is time to be alive & lively.
-			</p>
+	  <!-- Slide 1 -->
+	  <div class="carousel-item active">
+		<div class="carousel-container" style="overflow: hidden;">
+			<h2 class="animate__animated animate__fadeInDown">Welcome to <span>Moderna</span></h2>
+              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+              <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
 		</div>
-		<div class="col-md-6" style="    padding: 5% 0% 0% 10%;">
-			<div class="ratio ratio-16x9">
-				<iframe src="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=1&loop=1&mute=1" title="YouTube video" allowfullscreen></iframe>
-			  </div>
+	  </div>
+
+	  <!-- Slide 2 -->
+	  <div class="carousel-item">
+		<div class="carousel-container">
+		  <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
+		  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+		  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
 		</div>
+	  </div>
+
+	  <!-- Slide 3 -->
+	  <div class="carousel-item">
+		<div class="carousel-container">
+		  <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+		  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+		  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
+		</div>
+	  </div>
+
+	  <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+		<span class="carousel-control-prev-icon bx bx-chevron-left" aria-hidden="true"></span>
+	  </a>
+
+	  <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+		<span class="carousel-control-next-icon bx bx-chevron-right" aria-hidden="true"></span>
+	  </a>
+
 	</div>
-</div>
-<section class="container vlogsSection">
+  </section>
+  <section class="why-us section-bg aos-init aos-animate mt-5" data-aos="fade-up" date-aos-delay="200">
+	<div class="container">
+
+	  <div class="row">
+		<div class="col-lg-6 video-box overflow-hidden">
+		  <img src="/images/slider-img-4.jpg" class="img-fluid" style="max-width: 115%;" alt="">
+		  <a href="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=1&loop=1&mute=0" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
+		</div>
+
+		<div class="col-lg-6 d-flex flex-column justify-content-center p-5">
+
+		  <div class="icon-box">
+			<div class="icon"><i class='bx bx-fingerprint'></i></div>
+			<h4 class="title"><a href="">About Us</a></h4>
+			<p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non providentVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non providentVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+		  </div>
+
+		</div>
+	  </div>
+
+	</div>
+  </section>
+<section class="container vlogsSection" data-aos="fade-down"
+data-aos-easing="linear"
+data-aos-duration="1500">
 	<div class="row">
 		<div class="col-md-12">
 			<div style="border-right: 1px solid #b1967b!important; border-bottom: 1px solid #b1967b!important;    max-width: fit-content;

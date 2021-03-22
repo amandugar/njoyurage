@@ -1,5 +1,6 @@
+AOS.init();
 var cursor = {
-	delay: 0,
+	delay: 1,
 	_x: 0,
 	_y: 0,
 	endX: (window.innerWidth / 2),
@@ -119,24 +120,6 @@ cursor.init();
 
 if (window.location.pathname === "/") {
 
-	$('.single-item-rtl').slick({
-		dots: true,
-		infinite: true,
-		speed: 3000,
-		autoplay: true,
-		autoplaySpeed: 3000,
-		cssease: 'ease-in',
-		slidesToShow: 1,
-		pauseOnHover: false,
-		pauseOnFocus: false,
-		slidesToScroll: 1,
-		dotsc: true,
-		prevArrow: `<i class="bi bi-chevron-left a-left control-c prev slick-prev"></i>`,
-		nextArrow: `<i class="bi bi-chevron-right a-right control-c next slick-next"></i>`
-	});
-
-
-	// Params
 	var sliderSelector = '.swipe1',
 		options = {
 			init: false,
