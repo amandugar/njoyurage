@@ -14,7 +14,7 @@
 <form action="/deleteVlog" method="post">
     <select class="form-select" name="deletePost" aria-label="Default select example">
         <% vlogs.forEach(function(vlog){ %>
-        <option value="<%=post._id%>"><%=post.title%>&nbsp; &nbsp; - &nbsp; &nbsp;<%=post._id%></option>
+        <option value="<%=vlog._id%>"><%=vlog.title%>&nbsp; &nbsp; - &nbsp; &nbsp;<%=vlog._id%></option>
         <%})%>
     </select>
     <button type="submit" class="btn btn-primary">Submit</button>
