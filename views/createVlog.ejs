@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@400;700&family=Roboto&display=swap" rel="stylesheet">
+
+  <script src="https://unpkg.com/ionicons@5.0.0/dist/ionicons.js"></script>
+  <link rel="stylesheet" href="/css/login.css">
+  <script src="//cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <form class="form" ref='uploadForm'  method="POST" action="/admin/<%=username%>/createBlog" id="login" encType="multipart/form-data">
+    <h1 class="form__heading">Welcome</h1>
+    <div class="form__group">
+      <input type="text" id="title" name= "title" autocomplete="false" class="form__input" placeholder="Title of the Blog">
+      <label for="title" name ="title" class="form__label">Title</label>
+    </div>
+    <div class="form__group">
+        <input type="text" id="title" name="content" autocomplete="false" class="form__input" placeholder="Vlog Content">
+        <label for="title" name ="content" class="form__label">Content</label>
+    </div>
+    <div class="form__group">
+        <input type="text" id="title" name="link" autocomplete="false" class="form__input" placeholder="Vlog Youtube Link here">
+        <label for="link" name ="link" class="form__label">Link</label>
+    </div>
+    <button class="btn btn--large btn--green" form_id="login" type="submit" >
+      Create
+      <ion-icon class="btn__icon" name="arrow-forward-outline"></ion-icon>
+    </button>
+  </form>
+<style>
+    .form__input{
+        width: 70%;
+    }
+</style>
+</body>
+
+</html>

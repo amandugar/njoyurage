@@ -29,11 +29,15 @@ let usernameAuthenticated;
 
 app.use(passport.initialize());
 app.use(passport.session());
+try {
+    mongoose.connect("mongodb+srv://njoyurage:njoyurage@cluster0.pjnmd.mongodb.net/nJoyUrAge?retryWrites=true&w=majority", {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    });
+} catch (error) {
+    console.log(error)
+}
 
-mongoose.connect("mongodb+srv://njoyurage:njoyurage@cluster0.pjnmd.mongodb.net/nJoyUrAge?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 mongoose.set("useCreateIndex", true);
 
 const userSchema = new mongoose.Schema({
@@ -58,10 +62,18 @@ const postSchema = new mongoose.Schema({
     image: String
 })
 
+const vlogSchema = new mongoose.Schema({
+    title: String,
+    content: String,
+    link: String,
+    time: String
+})
+
 userSchema.plugin(passportLocalMongoose);
 
 const User = new mongoose.model("User", userSchema);
 const Post = new mongoose.model("Post", postSchema)
+const Vlog = new mongoose.model("Vlog", vlogSchema)
 
 passport.use(User.createStrategy());
 
@@ -118,8 +130,15 @@ app.get("/admin/:username/deleteBlog", function (req, res) {
             if (err) {
                 res.send("Error")
             } else {
-                res.render("deleteBlog", {
-                    posts: data
+                Vlog.find({}, function (err, vlogs) {
+                    if (err) {
+                        res.redirect("/error")
+                    } else {
+                        res.render("deleteBlog", {
+                            posts: data,
+                            vlogs: vlogs
+                        })
+                    }
                 })
             }
         })
@@ -132,12 +151,19 @@ app.post("/deleteBlog", function (req, res) {
     if (req.isAuthenticated()) {
         Post.findOneAndDelete({
             _id: req.body.deletePost
-        }, function (err) {
+        }, function (err, data) {
             if (err) {
                 console.log(err);
             } else {
-                console.log(req.body.deletePost)
-                res.send("Done");
+                fs.unlink(__dirname + `/public/images/uploads/${data.image}`, function (err) {
+                    if (err) {
+                        res.send("Error")
+                        console.log(err)
+                    } else {
+                        console.log(req.body.deletePost)
+                        res.send("Done");
+                    }
+                })
             }
         })
     } else {
@@ -178,10 +204,14 @@ app.post("/login", function (req, res) {
         if (err) {
             console.log(err);
         } else {
-            passport.authenticate("local")(req, res, function () {
-                usernameAuthenticated = username;
-                res.redirect(`/admin/${username}`);
-            });
+            try {
+                passport.authenticate("local")(req, res, function () {
+                    usernameAuthenticated = username;
+                    res.redirect(`/admin/${username}`);
+                });
+            } catch (error) {
+                res.redirect("/error")
+            }
         }
     });
 
@@ -237,9 +267,6 @@ app.post("/admin/:username/createBlog", function (req, res) {
             res.status(400).send('No files were uploaded.');
             return;
         }
-
-        console.log('req.files >>>', req.files); // eslint-disable-line
-
         image = req.files.image;
 
         uploadPath = __dirname + '/public/images/uploads/' + image.name;
@@ -285,7 +312,59 @@ app.get("/blogs/:id", function (req, res) {
     })
 })
 
+app.get("/vlogs", function (req, res) {
+    res.render("vlogs")
+})
 
+app.get("/admin/:username/create-vlog", function (req, res) {
+    if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+        res.render("createVlog", {
+            username: usernameAuthenticated
+        })
+    } else {
+        res.redirect("/error")
+    }
+})
+
+app.post("/create-vlog", function (req, res) {
+    if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+        let title = req.body.title;
+        let content = req.body.content
+        let link = req.body.link;
+        let time = Date(Date.now())
+        const newVlog = new Vlog({
+            title: title,
+            link: link,
+            content: content,
+            time: time,
+        })
+        newVlog.save(function (err) {
+            if (err) {
+                res.redirect("/error")
+            } else {
+                res.send("Sucessfully Created a Vlog")
+            }
+        })
+    } else {
+        res.redirect("/error")
+    }
+})
+
+app.post("/deleteVlog", function (req, res) {
+    if (req.isAuthenticated()) {
+        Vlog.findOneAndDelete({
+            _id: req.body.deleteVlog
+        }, function (err, data) {
+            if (err) {
+                console.log(err);
+            } else {
+                res.send("Done");
+            }
+        })
+    } else {
+        res.redirect("/")
+    }
+})
 
 app.get("/admin/:username/change-featured-post", function (req, res) {
     if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
@@ -325,6 +404,13 @@ app.post("/change-featured-post", function (req, res) {
     }
 })
 
+app.get("/error", function (req, res) {
+    res.send("error")
+})
+
+app.get("**", function (req, res) {
+    res.redirect("/error")
+})
 
 app.get("/logout", function (req, res) {
     req.logout();
