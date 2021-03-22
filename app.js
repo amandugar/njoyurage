@@ -313,7 +313,16 @@ app.get("/blogs/:id", function (req, res) {
 })
 
 app.get("/vlogs", function (req, res) {
-    res.render("vlogs")
+    Vlog.find({}, function (err, data) {
+        if (err) {
+            res.redirect("/error")
+        } else {
+            res.render("vlogs", {
+                vlogs: data
+            })
+        }
+    })
+
 })
 
 app.get("/admin/:username/create-vlog", function (req, res) {
@@ -327,7 +336,7 @@ app.get("/admin/:username/create-vlog", function (req, res) {
 })
 
 app.post("/create-vlog", function (req, res) {
-    if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+    if (req.isAuthenticated()) {
         let title = req.body.title;
         let content = req.body.content
         let link = req.body.link;
@@ -340,7 +349,7 @@ app.post("/create-vlog", function (req, res) {
         })
         newVlog.save(function (err) {
             if (err) {
-                res.redirect("/error")
+                console.log(err)
             } else {
                 res.send("Sucessfully Created a Vlog")
             }
