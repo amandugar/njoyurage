@@ -591,7 +591,7 @@ html, body, html *, body * {
     position: relative;
     max-width: 100%;
     margin-top: 15vh;
-    background-color: #5A13F2;
+    background-color: #F2B6A0;
     padding-bottom: 20vh;
 }
 
@@ -831,12 +831,17 @@ html, body, html *, body * {
 }
 
 .contactUs {
-    background-color: #000000;
-    max-width: 100%;
+    background-color: #8C5845;
+    max-width: 160%;
     padding: 2rem;
     position: relative;
     margin-top: 15vh;
-    padding-bottom: 20vh;
+    transform: translateX(-18.5%);
+    width: 160%;
+    border-radius: 0 0 50% 50%;
+    padding-left: 40%;
+    padding-right: 40%;
+    padding-bottom: 10%;
 }
 
 .contactUs .row h1 {
@@ -893,7 +898,7 @@ input, textarea {
     border: 0;
     width: 100%;
     font-size: 1rem;
-    background-color: #2d2d2d;
+    background-color: #5e3c3054;
     color: white;
     border-radius: 4px;
 }
