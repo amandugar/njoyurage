@@ -836,7 +836,7 @@ html, body, html *, body * {
     padding: 2rem;
     position: relative;
     margin-top: 15vh;
-    transform: translateX(-18.5%);
+    transform: translateX(-18.5%)!important;
     width: 160%;
     border-radius: 0 0 50% 50%;
     padding-left: 40%;
