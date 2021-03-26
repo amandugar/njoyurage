@@ -2,15 +2,15 @@
 <%- include("partials/navbar") %>
 <div class="container mt-5 pt-5">
     <div class="row">
-      <h1 class="fw-bolder">Vlogs</h1>
+      <h1 class="fw-bolder p-3">Vlogs</h1>
       <% vlogs.forEach(function(vlog){ %>  
       <div class="col-md-12">
         <div class="card">
           <div class = "row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <iframe class="vlogVideoHome" src="<%-vlog.link%>?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
               <div class="card-body">
                 <h4 class="card-title">
                   <%=vlog.title %>
