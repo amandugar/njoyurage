@@ -360,6 +360,7 @@ app.post("/create-vlog", function (req, res) {
 })
 
 app.post("/deleteVlog", function (req, res) {
+    console.log(req.body.deleteVlog)
     if (req.isAuthenticated()) {
         Vlog.findOneAndDelete({
             _id: req.body.deleteVlog
@@ -367,7 +368,7 @@ app.post("/deleteVlog", function (req, res) {
             if (err) {
                 console.log(err);
             } else {
-                res.send("Done");
+                res.send(data);;
             }
         })
     } else {
@@ -413,13 +414,7 @@ app.post("/change-featured-post", function (req, res) {
     }
 })
 
-app.get("/error", function (req, res) {
-    res.send("error")
-})
 
-app.get("**", function (req, res) {
-    res.redirect("/error")
-})
 
 app.get("/logout", function (req, res) {
     req.logout();
@@ -427,7 +422,13 @@ app.get("/logout", function (req, res) {
 });
 
 
+app.get("/error", function (req, res) {
+    res.send("error")
+})
 
+app.get("**", function (req, res) {
+    res.redirect("/error")
+})
 
 app.listen(port, function (req, res) {
     console.log(`Listening on port ${port}`)

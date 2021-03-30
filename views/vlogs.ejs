@@ -4,7 +4,7 @@
     <div class="row">
       <h1 class="fw-bolder p-3">Vlogs</h1>
       <% vlogs.forEach(function(vlog){ %>  
-      <div class="col-md-12">
+      <div class="col-md-12 mb-5">
         <div class="card">
           <div class = "row">
             <div class="col-lg-6">
@@ -18,7 +18,7 @@
   
                 <p class="card-text"><%- vlog.content%>
                 </p>
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#<%=vlog.id%>">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#a<%=vlog.id%>">
                   Watch Now
                 </button>
               </div>
@@ -26,7 +26,7 @@
         </div>
         </div>   
       </div>
-          <div class="modal fade" id="<%=vlog.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id="a<%=vlog.id%>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg">
               <div class="modal-content">
                 <div class="modal-header">
@@ -36,7 +36,7 @@
                 <div class="modal-body">
                   <div class="row p-3">
                     <div class="col-md-12">
-                      <iframe class="vlogVideoHome" src="<%-vlog.link%>?rel=0&amp;autoplay=1&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
+                      <iframe class="vlogVideoHomeModal" src="<%-vlog.link%>?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
                     </div>
                   </div>
                 </div>

@@ -12,7 +12,7 @@
 </form>
 <h1>Delete Vlog </h1>
 <form action="/deleteVlog" method="post">
-    <select class="form-select" name="deletePost" aria-label="Default select example">
+    <select class="form-select" name="deleteVlog" aria-label="Default select example">
         <% vlogs.forEach(function(vlog){ %>
         <option value="<%=vlog._id%>"><%=vlog.title%>&nbsp; &nbsp; - &nbsp; &nbsp;<%=vlog._id%></option>
         <%})%>

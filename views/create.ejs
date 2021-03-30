@@ -16,24 +16,24 @@
 
 <body>
 
-  <form class="form" ref='uploadForm'  method="POST" action="/admin/<%=username%>/createBlog" id="login" encType="multipart/form-data">
+  <form class="form" autocomplete="off" ref='uploadForm'  method="POST" action="/admin/<%=username%>/createBlog" id="login" encType="multipart/form-data">
     <h1 class="form__heading">Welcome</h1>
     <div class="form__group">
-      <input type="text" id="title" name= "title" autocomplete="false" class="form__input" placeholder="Title of the Blog">
+      <input type="text" id="title" name= "title" class="form__input" placeholder="Title of the Blog" autocomplete="off">
       <label for="title" name ="title" class="form__label">Title</label>
     </div>
     <div class="form__group">
-        <input type="text" id="title" name="subTitle" autocomplete="false" class="form__input" placeholder="sub Title of the Blog">
+        <input type="text" id="title" name="subTitle" class="form__input" placeholder="sub Title of the Blog" autocomplete="off">
         <label for="title" name ="subTitle" class="form__label">Sub Title</label>
     </div>
     <div class="form__group">
-        <input type="file" id="title" name="image" autocomplete="false" class="form__input">
+        <input type="file" id="title" name="image" class="form__input" autocomplete="off">
         <label for="image" name ="image" class="form__label">Header Image</label>
     </div>
     <h1 class="form__heading">Your content Here</h1>
     <div class="form__group">
 
-        <textarea name="content" cols="10" rows="0" class="form__input">Paste Your word Document File here and be sure to upload the images</textarea>
+        <textarea name="content" cols="10" rows="0" class="form__input" autocomplete="off">Paste Your word Document File here and be sure to upload the images</textarea>
         
         <script>
                 CKEDITOR.replace( 'content' );

@@ -624,7 +624,13 @@ html, body, html *, body * {
 
 .vlogVideoHome {
     min-width: 100%;
-    height: 18rem;
+    min-height: 18rem;
+    height: auto;
+}
+
+.vlogVideoHomeModal {
+    min-width: 100%;
+    min-height: 24rem;
 }
 
 .c-container {

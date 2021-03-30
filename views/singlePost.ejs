@@ -6,8 +6,8 @@
       <div class="row">
         <div class="col- col-md-10 mx-auto">
           <div class="post-heading">
-            <h1><%=blog.title%></h1>
-            <h2 class="subheading"><%=blog.subTitle%></h2>
+            <h1 class="text-start"><%=blog.title%></h1>
+            <h2 class="subheading text-start $green-500"><%=blog.subTitle%></h2>
             <span class="meta">Posted by
               <a href="#"><%=blog.author%> </a>
               at <%=blog.time.substring(0,21)%></span>
@@ -20,6 +20,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
+          <h2 class="subheading text-start pb-3"><%=blog.subTitle%></h2>
           <%-blog.content%>
           <style>
             img{
@@ -134,13 +135,13 @@
             margin-top: 0;
           }
           
-          header.masthead .site-heading .subheading {
+          .post-heading .subheading {
             font-size: 24px;
-            font-weight: 300;
+            font-weight: 800;
             line-height: 1.1;
             display: block;
             margin: 1rem 0 1rem;
-          
+            color: #20e288;
           }
           @media only screen and (min-width: 768px){
             header.masthead .page-heading h1, header.masthead .site-heading h1 {
