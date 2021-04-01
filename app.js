@@ -84,7 +84,6 @@ passport.deserializeUser(User.deserializeUser());
 fs.readFile('services.json', function (err, data) {
     if (err) throw err;
     services = JSON.parse(data);
-    console.log(services[0].knowMore[0].heading)
 })
 
 app.get("/", function (req, res) {
@@ -111,7 +110,6 @@ app.get("/blogs", function (req, res) {
                     res.send("Error")
                 } else {
                     featuredPost = JSON.parse(data);
-                    console.log(featuredPost)
                 }
             })
             setTimeout(() => {
@@ -160,7 +158,6 @@ app.post("/deleteBlog", function (req, res) {
                         res.send("Error")
                         console.log(err)
                     } else {
-                        console.log(req.body.deletePost)
                         res.send("Done");
                     }
                 })
@@ -286,7 +283,7 @@ app.post("/admin/:username/createBlog", function (req, res) {
             newPost.save(function (err, post) {
                 if (err) {
                     console.log(err)
-                    res.render("404")
+                    res.redirect("/error")
                 } else {
                     res.redirect("/admin/" + usernameAuthenticated)
                 }
@@ -350,6 +347,7 @@ app.post("/create-vlog", function (req, res) {
         newVlog.save(function (err) {
             if (err) {
                 console.log(err)
+                res.redirect("/error")
             } else {
                 res.send("Sucessfully Created a Vlog")
             }
@@ -367,6 +365,7 @@ app.post("/deleteVlog", function (req, res) {
         }, function (err, data) {
             if (err) {
                 console.log(err);
+                res.redirect("/error")
             } else {
                 res.send(data);;
             }
