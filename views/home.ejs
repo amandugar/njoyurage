@@ -6,8 +6,8 @@
 	  <!-- Slide 1 -->
 	  <div class="carousel-item active">
 		<div class="carousel-container" style="overflow: hidden;">
-			<h2 class="animate__animated animate__fadeInDown">Welcome to <span>Moderna</span></h2>
-              <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+			<h2 class="animate__animated animate__fadeInDown">Welcome to <span>NJoyUrAge</span></h2>
+              <p class="animate__animated animate__fadeInUp">At NjoyUrAge we are reimagining aging. Aging is fun. Aging is a rediscovery of yourself. Aging is experiencing the world all over….once again.</p>
               <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
 		</div>
 	  </div>
@@ -15,8 +15,8 @@
 	  <!-- Slide 2 -->
 	  <div class="carousel-item">
 		<div class="carousel-container">
-		  <h2 class="animate__animated animate__fadeInDown">Lorem Ipsum Dolor</h2>
-		  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
+		  <h2 class="animate__animated animate__fadeInDown">NjoyUrAge = Reimagine Aging</h2>
+		  <p class="animate__animated animate__fadeInUp">At NjoyUrAge we believe that the 'sunset' years are the best time you have. There are no worries or issues. So relax, and NjoyUrAge</p>
 		  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
 		</div>
 	  </div>
@@ -24,7 +24,7 @@
 	  <!-- Slide 3 -->
 	  <div class="carousel-item">
 		<div class="carousel-container">
-		  <h2 class="animate__animated animate__fadeInDown">Sequi ea ut et est quaerat</h2>
+		  <h2 class="animate__animated animate__fadeInDown">This belongs to You</h2>
 		  <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
 		  <a href="" class="btn-get-started animate__animated animate__fadeInUp">Read More</a>
 		</div>
@@ -45,7 +45,7 @@
 
 	  <div class="row">
 		<div class="col-lg-6 video-box overflow-hidden">
-		  <img src="/images/slider-img-4.jpg" class="img-fluid" style="max-width: 115%;" alt="">
+		  <img src="/images/slider-img-4.jpg" class="img-fluid" style="max-width: 120%;" alt="">
 		  <a href="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=1&loop=1&mute=0" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
 		</div>
 
@@ -54,7 +54,10 @@
 		  <div class="icon-box">
 			<div class="icon"><i class='bx bx-fingerprint'></i></div>
 			<h4 class="title"><a href="">About Us</a></h4>
-			<p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non providentVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non providentVoluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
+			<p class="description">At NjoyUrAge we are reimagining aging. Aging is fun. Aging is a rediscovery of yourself. Aging is experiencing the world all over….once again. Aging is life’s beautiful phase. It is a time to travel. It is time to spend hours with old friends. It is time to find and make new friends. It is time to be alive & lively.</p>
+			<blockquote class="blockquote">
+				<p>“At NjoyUrAge we believe that the 'sunset' years are the best time you have. There are no worries or issues. So relax, and NjoyUrAge”</p>
+			</blockquote>
 		  </div>
 
 		</div>
@@ -72,32 +75,17 @@ data-aos-easing="linear">
 	<center>
 		<h2 class="fs-1 text-uppercase border-bottom pb-3">Blogs</h2>
 	</center>
-		
 	</div>
 		</div>
 		<div class="col-md-12">
 			<section class="swiper-container loading swipe1">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide" style="background-image:url(https://wallpaperaccess.com/full/271965.jpg)"> <img src="https://wallpaperaccess.com/full/271965.jpg" class="entity-img" />
+					<% blogs.forEach(function(blog){%>
+					<div class="swiper-slide" style="background-image:url(/images/uploads/<%=blog.image%>)"> <img src="/images/uploads/<%=blog.image%>" class="entity-img" />
 						<div class="content">
-							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Shaun Matthews</p> <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> </div>
+							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7"><%=blog.title%></p> <span class="caption" data-swiper-parallax="-20%"><%-blog.content.slice(0,200)%></span> </div>
 					</div>
-					<div class="swiper-slide" style="background-image:url(https://wallpaperaccess.com/full/30100.jpg)"> <img src="https://wallpaperaccess.com/full/30100.jpg" class="entity-img" />
-						<div class="content">
-							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Alexis Berry</p> <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> </div>
-					</div>
-					<div class="swiper-slide" style="background-image:url(https://wallpaperaccess.com/full/271963.jpg)"> <img src="https://wallpaperaccess.com/full/271963.jpg" class="entity-img" />
-						<div class="content">
-							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Billie Pierce</p> <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> </div>
-					</div>
-					<div class="swiper-slide" style="background-image:url(https://wallpaperaccess.com/full/271968.jpg)"> <img src="https://wallpaperaccess.com/full/271968.jpg" class="entity-img" />
-						<div class="content">
-							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Trevor Copeland</p> <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> </div>
-					</div>
-					<div class="swiper-slide" style="background-image:url(https://wallpaperaccess.com/full/232550.jpg)"> <img src="https://wallpaperaccess.com/full/232550.jpg" class="entity-img" />
-						<div class="content">
-							<p class="title" data-swiper-parallax="-30%" data-swiper-parallax-scale=".7">Bernadette Newman</p> <span class="caption" data-swiper-parallax="-20%">Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</span> </div>
-					</div>
+					<%}) %>
 				</div>
 				<!-- If we need pagination -->
 				<div class="swiper-pagination"></div>
@@ -113,46 +101,21 @@ data-aos-easing="linear">
 		<h2 class="fs-1 text-uppercase border-bottom pb-3" style="max-width: fit-content;">Vlogs</h2>
 	</center>
 	<div class="row">
-		
+		<% vlogs.forEach(function(vlog){ %>		
 		<div class="col-md-4">
 			<div class="card blogCard">
 				<div class="imageBlog">
-					<iframe class="vlogVideoHome" src="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
+					<iframe class="vlogVideoHome" src="<%=vlog.link%>?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
 				</div>
 				<div class="blogBody card-body">
-					<p class="verticalTextBlog">By ELLie</p>
-					<h3 class="card-title blogTitle">Card title</h3>
-					<p class="dateBlog">12 Nov 2017</p>
+					<p class="verticalTextBlog">By NJoyUrAge</p>
+					<h3 class="card-title blogTitle"><%=vlog.title%></h3>
+					<p class="dateBlog"><%= vlog.time.slice(0,15)%></p>
 					<div class="hrDiv"></div>
-					<p class="card-text blogText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> <a href="#">Read Full Article</a> </div>
+					<p class="card-text blogText"><%=vlog.content.slice(0,200)%></p> <a href="#">Read Full Article</a> </div>
 			</div>
 		</div>
-		<div class="col-md-4">
-			<div class="card blogCard">
-				<div class="imageBlog">
-					<iframe class="vlogVideoHome" src="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
-				</div>
-				<div class="blogBody card-body">
-					<p class="verticalTextBlog">By ELLie</p>
-					<h3 class="card-title blogTitle">Card title</h3>
-					<p class="dateBlog">12 Nov 2017</p>
-					<div class="hrDiv"></div>
-					<p class="card-text blogText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> <a href="#">Read Full Article</a> </div>
-			</div>
-		</div>
-		<div class="col-md-4">
-			<div class="card blogCard">
-				<div class="imageBlog">
-					<iframe class="vlogVideoHome" src="https://www.youtube.com/embed/Jc-_jC0raYU?rel=0&amp;autoplay=0&loop=1&mute=0" title="YouTube video" allowfullscreen></iframe>
-				</div>
-				<div class="blogBody card-body">
-					<p class="verticalTextBlog">By ELLie</p>
-					<h3 class="card-title blogTitle">Card title</h3>
-					<p class="dateBlog">12 Nov 2017</p>
-					<div class="hrDiv"></div>
-					<p class="card-text blogText">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p> <a href="#">Read Full Article</a> </div>
-			</div>
-		</div>
+		<% }) %> 
 	</div>
 	<svg id="banner_svg" class="separator__svg" style="bottom: 0;" width="100%" viewBox="0 0 100 100" preserveAspectRatio="none" fill="#ffffff" version="1.1" xmlns="http://www.w3.org/2000/svg">
 		<path d="M 100 100 V 10 L 0 100"></path>

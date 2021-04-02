@@ -87,7 +87,22 @@ fs.readFile('services.json', function (err, data) {
 })
 
 app.get("/", function (req, res) {
-    res.render("home")
+    Post.find({}).limit(5).sort({ time: 1 }).exec((err, posts) => {
+        if (err) {
+            console.log(err)
+        } else {
+            Vlog.find({}).limit(3).sort({ time: 1 }).exec((err, vlogs) => {
+                if (err) {
+                    console.log(err)
+                } else {
+                    res.render("home", {
+                        blogs: posts,
+                        vlogs: vlogs
+                    })
+                }
+            })
+        }
+    })
 })
 
 app.get("/about", function (req, res) {
