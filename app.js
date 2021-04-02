@@ -53,6 +53,13 @@ const userSchema = new mongoose.Schema({
     password: String,
 });
 
+const contactSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    phone: Number,
+    message: String
+})
+
 const postSchema = new mongoose.Schema({
     author: String,
     title: String,
@@ -74,6 +81,7 @@ userSchema.plugin(passportLocalMongoose);
 const User = new mongoose.model("User", userSchema);
 const Post = new mongoose.model("Post", postSchema)
 const Vlog = new mongoose.model("Vlog", vlogSchema)
+const Contact = new mongoose.model("Contact", contactSchema)
 
 passport.use(User.createStrategy());
 
@@ -394,7 +402,8 @@ app.get("/admin/:username/change-featured-post", function (req, res) {
     if (req.isAuthenticated() && usernameAuthenticated === req.params.username) {
         Post.find({}, function (err, data) {
             if (err) {
-                res.send("Error")
+                console.log(err);
+                res.redirect("/error")
             } else {
                 res.render("changeFeaturePost", {
                     posts: data
@@ -403,6 +412,22 @@ app.get("/admin/:username/change-featured-post", function (req, res) {
         })
     } else {
         res.redirect("/")
+    }
+})
+
+
+app.get("/admin/:username/contactList",function (req,res) {
+    if(req.isAuthenticated() && usernameAuthenticated === req.params.username) {
+        Contact.find({},function(err,contact) {
+            if (err) {
+                console.log(err)
+                res.redirect("/error")
+            } else {
+                res.render("contactList", {
+                    contacts: contact
+                })
+            }
+        })
     }
 })
 
@@ -428,10 +453,42 @@ app.post("/change-featured-post", function (req, res) {
     }
 })
 
+app.post("/newContact", function (req, res) {
+    const name = req.body.name;
+    const email = req.body.email;
+    const phone = req.body.phone;
+    const message = req.body.message;
+
+    const contact = new Contact({
+        name: name,
+        email: email,
+        phone: phone,
+        message: message
+    })
+    Contact.find({ email: email }, function (err, result) {
+        if (err) {
+            console.log(err)
+            res.redirect("/error")
+        } else if (result.length > 0) {
+            res.send("Contact Already Exists")
+        } else {
+            console.log(result)
+            contact.save((err) => {
+                if (err) {
+                    res.redirect("/error")
+                } else {
+                    res.redirect("/")
+                }
+            })
+        }
+    })
+})
+
 
 
 app.get("/logout", function (req, res) {
     req.logout();
+    usernameAuthenticated = null;
     res.redirect("/");
 });
 

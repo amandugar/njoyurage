@@ -1058,12 +1058,12 @@ input[type=checkbox]:checked+label {
     background: #3B5998;
 }
 
-.twitter-bg {
-    background: #55ACEE;
+.linkedin-bg {
+    background:  #0e76a8;
 }
 
-.google-bg {
-    background: #DD4B39;
+.youtube-bg {
+    background: #FF0000;
 }
 
 .footer-widget-heading h3 {

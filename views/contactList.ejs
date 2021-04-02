@@ -1,0 +1,26 @@
+<%- include("partials/header") %>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">S.No</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Message</th>
+      </tr>
+    </thead>
+    <tbody>
+        <% let i = 1; %>
+        <% contacts.forEach(function(contact) { %>
+            <tr>
+                <th scope="row"><%= i %> <% i+=1 %> </th>
+                <td><%=contact.name%></td>
+                <td><%=contact.email%></td>
+                <td><%=contact.phone%></td>
+                <td><%=contact.message%></td>
+              </tr>
+        <%})%>
+
+    </tbody>
+  </table>
+<%- include("partials/footer") %>
